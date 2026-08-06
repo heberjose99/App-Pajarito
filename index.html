@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="style.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-       <h1>Bienvenidos a mi primera pagina de Pajaritos</h1>
-       
-        
+        <h1>Bienvenidos a mi primera página de Pajaritos</h1>
+        <p>Esta es una página web dedicada a mostrar fotos de pájaros extraños.</p>
+
+        <section class="carousel" aria-label="Galería de pájaros">
+            <div class="carousel__viewport">
+                <div class="carousel__slide active">
+                    <img src="img/img1.jpg" alt="Pájaro 1">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img2.jpg" alt="Pájaro 2">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img3.jpg" alt="Pájaro 3">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img4.jpg" alt="Pájaro 4">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img5.jpg" alt="Pájaro 5">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img6.jpg" alt="Pájaro 6">
+                </div>
+                <div class="carousel__slide">
+                    <img src="img/img7.jpg" alt="Pájaro 7">
+                </div>
+            </div>
+            <button class="carousel__button carousel__button--prev" aria-label="Anterior">‹</button>
+            <button class="carousel__button carousel__button--next" aria-label="Siguiente">›</button>
+            <div class="carousel__dots" aria-label="Controles del carrusel"></div>
+        </section>
+
+        <script src="script.js" defer></script>
     </body>
 </html>
