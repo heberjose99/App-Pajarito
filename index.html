@@ -39,8 +39,8 @@
 
     <header class="fixed top-0 z-50 flex w-full items-center justify-between px-5 py-5 sm:px-[5%] sm:py-7">
         <a href="#" class="font-display text-3xl font-bold tracking-[2px] text-white">AVE FENIX</a>
-        <nav class="hidden md:block">
-            <ul class="flex gap-10">
+        <nav class="block" aria-label="Navegación principal">
+            <ul class="flex flex-wrap justify-end gap-3 sm:gap-10">
                 <li><a href="#hero" class="text-xs uppercase tracking-[2px] text-white/80 transition-colors hover:text-gold">Inicio</a></li>
                 <li><a href="#species" class="text-xs uppercase tracking-[2px] text-white/80 transition-colors hover:text-gold">Especies</a></li>
                 <li><a href="#" class="text-xs uppercase tracking-[2px] text-white/80 transition-colors hover:text-gold">Hábitat</a></li>
@@ -62,72 +62,72 @@
 
         <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-10">
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="tucan" tabindex="0" aria-label="Escuchar el canto del Tucán Tropical">
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="tucan" tabindex="0" role="button" aria-label="Escuchar el canto del Tucán Tropical">
                 <div class="h-[250px] overflow-hidden">
-                    <img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1555169062-013468b47731?q=85&w=1000&auto=format&fit=crop" alt="Tucán">
+                    <img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1555169062-013468b47731?q=85&w=1000&auto=format&fit=crop" alt="Tucán" loading="lazy" decoding="async">
                 </div>
-                <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Toco_Toucan_call_%28Ramphastos_toco%29.ogg"></audio>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Toco_Toucan_call_%28Ramphastos_toco%29.ogg"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Tucán Tropical</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Famoso por su pico colorido y gran tamaño. A pesar de su apariencia, su pico es hueco y liviano, perfecto para alcanzar frutos en las ramas más delgadas.</p>
                 </div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="colibri" tabindex="0" aria-label="Escuchar el canto del Colibrí Esmeralda">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1520552159191-e28a1d9f0d7e?q=80&w=1000&auto=format&fit=crop" alt="Colibrí">
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="colibri" tabindex="0" role="button" aria-label="Escuchar el canto del Colibrí Esmeralda">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1520552159191-e28a1d9f0d7e?q=80&w=1000&auto=format&fit=crop" alt="Colibrí" loading="lazy" decoding="async">
                 </div>
-                <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Calypte_anna_-_Anna%27s_Hummingbird_XC109651.mp3"></audio>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Calypte_anna_-_Anna%27s_Hummingbird_XC109651.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Colibrí Esmeralda</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">El atleta del aire. Aletea hasta 80 veces por segundo, permitiéndole volar hacia atrás y quedarse suspendido para beber néctar.</p>
                 </div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="buho" tabindex="0" aria-label="Escuchar el canto del Búho Nival">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1547732463-553e72480112?q=80&w=387&auto=format&fit=crop" alt="Búho Nival">
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="buho" tabindex="0" role="button" aria-label="Escuchar el canto del Búho Nival">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1547732463-553e72480112?q=80&w=387&auto=format&fit=crop" alt="Búho Nival" loading="lazy" decoding="async">
                 </div>
-                <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/f/f/Call_of_Brown_hawk-owl_%28Ninox_scutulata%29_from_South_Bengal.wav"></audio>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Ninox_scutulata_-_Brown_Hawk-Owl_XC382468.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Búho Nival</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">El señor de la noche y las nieves. Su plumaje blanco le permite camuflarse en invierno, y su vuelo es tan silencioso que su presa lo escucha demasiado tarde.</p>
                 </div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="guacamayo" tabindex="0" aria-label="Escuchar el canto del Guacamayo Escarlata">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=85&w=1000&auto=format&fit=crop" alt="Guacamayo">
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="guacamayo" tabindex="0" role="button" aria-label="Escuchar el canto del Guacamayo Escarlata">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=85&w=1000&auto=format&fit=crop" alt="Guacamayo" loading="lazy" decoding="async">
                 </div>
-                <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Scarlet_macaw_01.wav"></audio>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Scarlet_macaw_01.wav"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Guacamayo Escarlata</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">La antorcha viviente de la selva amazónica. Su colorido plumaje rojo y azul es un símbolo de la libertad, volando en parejas que duran toda la vida.</p>
                 </div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="benteveo" tabindex="0" aria-label="Escuchar el canto del Benteveo Tropical">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Great_kiskadee_%2870240%29.jpg" alt="Benteveo Tropical"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Kiskadee%20call.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="benteveo" tabindex="0" role="button" aria-label="Escuchar el canto del Benteveo Tropical">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Great_kiskadee_%2870240%29.jpg" alt="Benteveo Tropical" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Pitangus_sulphuratus_-_Great_Kiskadee_XC248744.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Benteveo Tropical</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Su llamado fuerte y claro atraviesa los claros del bosque tropical.</p></div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="jacamar" tabindex="0" aria-label="Escuchar el canto del Jacamar Cobrizo">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Rufous-tailed_jacamar_%28Galbula_ruficauda%29_male_2.JPG" alt="Jacamar Cobrizo"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rufous-tailed%20Jacamar%20call.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="jacamar" tabindex="0" role="button" aria-label="Escuchar el canto del Jacamar Cobrizo">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Rufous-tailed_jacamar_%28Galbula_ruficauda%29_male_2.JPG" alt="Jacamar Cobrizo" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/7/72/Galbula_ruficauda_-_Rufous-tailed_Jacamar_XC250854.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Jacamar Cobrizo</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Atrapa insectos al vuelo desde las ramas cercanas a los claros.</p></div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="tangara" tabindex="0" aria-label="Escuchar el canto de la Tangara Azuleja">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Blue-grey_tanager_%28Thraupis_episcopus_berlepschi%29.jpg" alt="Tangara Azuleja"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Blue-gray%20Tanager%20song.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="tangara" tabindex="0" role="button" aria-label="Escuchar el canto de la Tangara Azuleja">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Blue-grey_tanager_%28Thraupis_episcopus_berlepschi%29.jpg" alt="Tangara Azuleja" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Thraupis_episcopus_-_Blue-grey_Tanager_XC243186.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Tangara Azuleja</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Sus tonos azules y grises resaltan entre el follaje húmedo.</p></div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="motmot" tabindex="0" aria-label="Escuchar el canto del Momoto Coroniceleste">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Momotus_momotaAQBIP08CA.jpg" alt="Momoto Coroniceleste"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Blue-crowned%20Motmot%20call.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="motmot" tabindex="0" role="button" aria-label="Escuchar el canto del Momoto Coroniceleste">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Momotus_momotaAQBIP08CA.jpg" alt="Momoto Coroniceleste" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Baryphthengus_martii_-_Rufous_Motmot_XC250538.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Momoto Coroniceleste</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Su cola oscilante anuncia su presencia entre la vegetación.</p></div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="carpintero" tabindex="0" aria-label="Escuchar el canto del Carpintero Tropical">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Dryocopus_lineatus_%28Carpintero_real%29_%2824793532516%29.jpg" alt="Carpintero Tropical"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lineated%20Woodpecker%20call.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="carpintero" tabindex="0" role="button" aria-label="Escuchar el canto del Carpintero Tropical">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Dryocopus_lineatus_%28Carpintero_real%29_%2824793532516%29.jpg" alt="Carpintero Tropical" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Dryocopus_lineatus_-_Lineated_Woodpecker_XC214145.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Carpintero Tropical</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Su tamborileo descubre troncos y rincones ocultos del bosque.</p></div>
             </div>
 
-            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="martin" tabindex="0" aria-label="Escuchar el canto del Martín Pescador">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/1/11/Ringed_Kingfisher%2C_Rio_Sarar%C3%A9%2C_Mato_Grosso%2C_Brazil.jpg" alt="Martín Pescador"></div>
-                <audio preload="none" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ringed%20Kingfisher%20call.ogg"></audio>
+            <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="martin" tabindex="0" role="button" aria-label="Escuchar el canto del Martín Pescador">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ringed%20Kingfisher%2C%20Rio%20Sarar%C3%A9%2C%20Mato%20Grosso%2C%20Brazil.jpg" alt="Martín Pescador" loading="lazy" decoding="async"></div>
+                    <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Megaceryle_torquata_-_Ringed_Kingfisher_XC251087.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Martín Pescador</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Vigila las aguas quietas antes de lanzarse por su presa.</p></div>
             </div>
 
