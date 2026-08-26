@@ -1,69 +1,57 @@
-const slides = Array.from(document.querySelectorAll('.carousel__slide'));
-const dotsContainer = document.querySelector('.carousel__dots');
-const nextButton = document.querySelector('.carousel__button--next');
-const prevButton = document.querySelector('.carousel__button--prev');
-let currentIndex = 0;
-let autoAdvance;
+// Aparición progresiva de las secciones.
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.15 });
 
-function createDots() {
-    slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel__dot';
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Ir a la imagen ${index + 1}`);
-        dot.addEventListener('click', () => showSlide(index));
-        dotsContainer.appendChild(dot);
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+// Reproducción de archivos reales alojados en Wikimedia Commons.
+let activeAudio = null;
+const ambientAudio = document.getElementById('ambientAudio');
+const soundBtn = document.getElementById('soundToggle');
+const soundIcon = soundBtn.querySelector('i');
+
+function stopBirdAudio() {
+    if (!activeAudio) return;
+    activeAudio.pause();
+    activeAudio.currentTime = 0;
+    activeAudio = null;
+}
+
+function playBirdAudio(audio) {
+    if (!audio) return;
+    if (activeAudio && activeAudio !== audio) stopBirdAudio();
+    activeAudio = audio;
+    audio.currentTime = 0;
+    audio.volume = 0.85;
+    audio.play().catch(() => {
+        // Algunos navegadores exigen una interacción previa del usuario.
     });
 }
 
-function showSlide(index) {
-    currentIndex = (index + slides.length) % slides.length;
+document.querySelectorAll('.card[data-bird]').forEach(card => {
+    const audio = card.querySelector('audio');
+    card.addEventListener('mouseenter', () => playBirdAudio(audio));
+    card.addEventListener('mouseleave', stopBirdAudio);
+    card.addEventListener('focus', () => playBirdAudio(audio));
+    card.addEventListener('blur', stopBirdAudio);
+});
 
-    slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle('active', slideIndex === currentIndex);
-    });
-
-    const dots = Array.from(dotsContainer.children);
-    dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle('active', dotIndex === currentIndex);
-    });
-}
-
-function nextSlide() {
-    showSlide(currentIndex + 1);
-}
-
-function prevSlide() {
-    showSlide(currentIndex - 1);
-}
-
-function startAutoAdvance() {
-    stopAutoAdvance();
-    autoAdvance = setInterval(nextSlide, 5000);
-}
-
-function stopAutoAdvance() {
-    if (autoAdvance) {
-        clearInterval(autoAdvance);
+soundBtn.addEventListener('click', () => {
+    if (ambientAudio.paused) {
+        ambientAudio.volume = 0.5;
+        ambientAudio.play().catch(() => {});
+        soundBtn.classList.add('active');
+        soundBtn.setAttribute('aria-pressed', 'true');
+        soundIcon.className = 'fas fa-volume-up';
+    } else {
+        ambientAudio.pause();
+        ambientAudio.currentTime = 0;
+        stopBirdAudio();
+        soundBtn.classList.remove('active');
+        soundBtn.setAttribute('aria-pressed', 'false');
+        soundIcon.className = 'fas fa-volume-mute';
     }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    createDots();
-    showSlide(currentIndex);
-    startAutoAdvance();
-
-    nextButton.addEventListener('click', () => {
-        nextSlide();
-        startAutoAdvance();
-    });
-
-    prevButton.addEventListener('click', () => {
-        prevSlide();
-        startAutoAdvance();
-    });
-
-    const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', stopAutoAdvance);
-    carousel.addEventListener('mouseleave', startAutoAdvance);
 });
