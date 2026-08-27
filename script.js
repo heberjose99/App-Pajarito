@@ -74,6 +74,12 @@ document.querySelectorAll('.card[data-bird]').forEach(card => {
     card.addEventListener('mouseleave', stopBirdAudio);
     card.addEventListener('focus', () => playBirdAudio(audio));
     card.addEventListener('blur', stopBirdAudio);
+    card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            playBirdAudio(audio);
+        }
+    });
 });
 
 soundBtn.addEventListener('click', () => {
@@ -82,12 +88,14 @@ soundBtn.addEventListener('click', () => {
         ambientAudio.play().catch(() => {});
         soundBtn.classList.add('active');
         soundBtn.setAttribute('aria-pressed', 'true');
+        soundBtn.setAttribute('aria-label', 'Desactivar sonido ambiental');
         soundIcon.className = 'fas fa-volume-up';
     } else {
         ambientAudio.pause();
         ambientAudio.currentTime = 0;
         soundBtn.classList.remove('active');
         soundBtn.setAttribute('aria-pressed', 'false');
+        soundBtn.setAttribute('aria-label', 'Activar sonido ambiental');
         soundIcon.className = 'fas fa-volume-mute';
         stopBirdAudio();
     }

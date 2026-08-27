@@ -1,4 +1,17 @@
 /* ===== Fondo y overlay ===== */
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 1000;
+    padding: 8px 12px;
+    background: #f4f4f4;
+    color: #0a0a0a;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
 .video-overlay {
     position: fixed;
     top: 0;
@@ -56,6 +69,12 @@ button:focus-visible,
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+.card {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}
+
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);

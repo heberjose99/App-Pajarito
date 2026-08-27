@@ -6,35 +6,18 @@
     <title>Aves del Trópico | Inmersión Visual</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://upload.wikimedia.org">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                screens: {
-                    sm: '576px',
-                    md: '768px',
-                    lg: '992px'
-                },
-                extend: {
-                    colors: {
-                        gold: '#d4af37'
-                    },
-                    fontFamily: {
-                        display: ['Cormorant Garamond', 'serif'],
-                        body: ['Lato', 'sans-serif']
-                    }
-                }
-            }
-        };
-    </script>
+    <link rel="stylesheet" href="tailwind.generated.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0a0a0a] bg-[url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=85&w=2400&auto=format&fit=crop')] bg-cover bg-fixed bg-center font-body text-[#f4f4f4]">
+<body class="bg-[#0a0a0a] bg-[url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=75&w=1800&auto=format&fit=crop')] bg-cover bg-fixed bg-center font-body text-[#f4f4f4]">
 
-    <div class="video-overlay"></div>
+    <a class="skip-link" href="#hero">Saltar al contenido principal</a>
+    <div class="video-overlay" aria-hidden="true"></div>
     <audio id="ambientAudio" loop preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/34/The_Loyalist_-_Jungle.ogg"></audio>
 
     <header class="fixed top-0 z-50 flex w-full items-center justify-between px-5 py-5 sm:px-[5%] sm:py-7">
@@ -48,6 +31,7 @@
         </nav>
     </header>
 
+    <main>
     <section class="flex h-screen flex-col items-center justify-center px-5 text-center" id="hero">
         <h1 class="fade-in-up mb-5 font-display text-5xl font-normal [text-shadow:0_4px_10px_rgba(0,0,0,0.5)] md:text-7xl">Sinfonía Tropical</h1>
         <p class="fade-in-up mb-10 max-w-[600px] text-lg font-light text-gray-300">Un viaje inmersivo a través de los cielos más vívidos. Descubre la majestuosidad de las aves que pueblan nuestros bosques tropicales.</p>
@@ -64,7 +48,7 @@
 
             <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="tucan" tabindex="0" role="button" aria-label="Escuchar el canto del Tucán Tropical">
                 <div class="h-[250px] overflow-hidden">
-                    <img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1555169062-013468b47731?q=85&w=1000&auto=format&fit=crop" alt="Tucán" loading="lazy" decoding="async">
+                    <img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1555169062-013468b47731?q=75&w=800&auto=format&fit=crop" alt="Tucán" loading="lazy" decoding="async">
                 </div>
                     <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Toco_Toucan_call_%28Ramphastos_toco%29.ogg"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Tucán Tropical</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">Famoso por su pico colorido y gran tamaño. A pesar de su apariencia, su pico es hueco y liviano, perfecto para alcanzar frutos en las ramas más delgadas.</p>
@@ -72,7 +56,7 @@
             </div>
 
             <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="colibri" tabindex="0" role="button" aria-label="Escuchar el canto del Colibrí Esmeralda">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1520552159191-e28a1d9f0d7e?q=80&w=1000&auto=format&fit=crop" alt="Colibrí" loading="lazy" decoding="async">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1520552159191-e28a1d9f0d7e?q=75&w=800&auto=format&fit=crop" alt="Colibrí" loading="lazy" decoding="async">
                 </div>
                     <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Calypte_anna_-_Anna%27s_Hummingbird_XC109651.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Colibrí Esmeralda</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">El atleta del aire. Aletea hasta 80 veces por segundo, permitiéndole volar hacia atrás y quedarse suspendido para beber néctar.</p>
@@ -80,7 +64,7 @@
             </div>
 
             <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="buho" tabindex="0" role="button" aria-label="Escuchar el canto del Búho Nival">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1547732463-553e72480112?q=80&w=387&auto=format&fit=crop" alt="Búho Nival" loading="lazy" decoding="async">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1547732463-553e72480112?q=75&w=800&auto=format&fit=crop" alt="Búho Nival" loading="lazy" decoding="async">
                 </div>
                     <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Ninox_scutulata_-_Brown_Hawk-Owl_XC382468.mp3"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Búho Nival</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">El señor de la noche y las nieves. Su plumaje blanco le permite camuflarse en invierno, y su vuelo es tan silencioso que su presa lo escucha demasiado tarde.</p>
@@ -88,7 +72,7 @@
             </div>
 
             <div class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="guacamayo" tabindex="0" role="button" aria-label="Escuchar el canto del Guacamayo Escarlata">
-                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=85&w=1000&auto=format&fit=crop" alt="Guacamayo" loading="lazy" decoding="async">
+                <div class="h-[250px] overflow-hidden"><img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=75&w=800&auto=format&fit=crop" alt="Guacamayo" loading="lazy" decoding="async">
                 </div>
                     <audio preload="none" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Scarlet_macaw_01.wav"></audio>
                 <div class="p-6"><h3 class="mb-2.5 font-display text-3xl text-gold">Guacamayo Escarlata</h3><p class="text-[.95rem] font-light leading-relaxed text-gray-300">La antorcha viviente de la selva amazónica. Su colorido plumaje rojo y azul es un símbolo de la libertad, volando en parejas que duran toda la vida.</p>
@@ -133,12 +117,13 @@
 
         </div>
     </section>
+    </main>
 
     <footer class="border-t border-white/10 bg-black/60 px-5 py-16 text-center">
         <p class="text-xs text-gray-500">&copy; 2026 AVE FENIX. Diseño Natural.</p>
     </footer>
 
-    <button class="sound-btn fixed bottom-7 right-7 z-[999] flex h-[60px] w-[60px] items-center justify-center rounded-full border border-white/10 bg-black/60 text-2xl text-white backdrop-blur-[10px] transition-transform hover:scale-110 hover:border-gold" id="soundToggle" title="Activar Sonido Ambiental" aria-pressed="false">
+    <button class="sound-btn fixed bottom-7 right-7 z-[999] flex h-[60px] w-[60px] items-center justify-center rounded-full border border-white/10 bg-black/60 text-2xl text-white backdrop-blur-[10px] transition-transform hover:scale-110 hover:border-gold" id="soundToggle" title="Activar Sonido Ambiental" aria-label="Activar sonido ambiental" aria-pressed="false">
         <i class="fas fa-volume-mute"></i>
     </button>
 
