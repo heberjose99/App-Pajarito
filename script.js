@@ -1,5 +1,5 @@
 // Para producción en Coolify, reemplaza esta URL por la URL pública del backend.
-const API_URL = 'https://97aegv0fkrmj1o0k3ifwnffr.45.172.143.58.sslip.io';
+const API_URL = 'http://97aegv0fkrmj1o0k3ifwnffr.45.172.143.58.sslip.io';
 
 // Aparición progresiva de las secciones.
 const observer = new IntersectionObserver((entries) => {
