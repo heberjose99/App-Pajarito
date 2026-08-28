@@ -1,4 +1,4 @@
-﻿// server.js
+// server.js
 // Backend de la API de App Pajarito.
 // Expone datos de aves (nombre, descripciones, imagen, audio) desde una base
 // de datos PostgreSQL, para que el frontend arme las tarjetas dinámicamente.
@@ -311,6 +311,11 @@ app.get('/api/aves/:nombre', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Error al consultar la base de datos' });
     }
+});
+
+// Ruta simple para que Coolify confirme que el servidor esta vivo
+app.get('/', (req, res) => {
+    res.json({ estado: 'ok', mensaje: 'API de App Pajarito funcionando' });
 });
 
 const PUERTO = process.env.PORT || 3000;
