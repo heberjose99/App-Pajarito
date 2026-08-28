@@ -1,3 +1,6 @@
+// Para producción en Coolify, reemplaza esta URL por la URL pública del backend.
+const API_URL = 'http://localhost:3000';
+
 // Aparición progresiva de las secciones.
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -100,3 +103,89 @@ soundBtn.addEventListener('click', () => {
         stopBirdAudio();
     }
 });
+
+const birdsContainer = document.getElementById('contenedor-aves');
+const searchInput = document.getElementById('busqueda-aves');
+const initialBirdCards = [...birdsContainer.children];
+let currentRequestController = null;
+let searchTimeout = null;
+
+function escapeHTML(value = '') {
+    return String(value).replace(/[&<>'"]/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[character]));
+}
+
+function renderBirds(birds) {
+    if (birds.length === 0) {
+        birdsContainer.innerHTML = '<p class="col-span-full py-12 text-center text-gray-400">No encontramos aves con esa búsqueda.</p>';
+        return;
+    }
+
+    birdsContainer.innerHTML = birds.map(bird => `
+        <article class="card reveal overflow-hidden rounded-[15px] border border-white/10 bg-black/60 backdrop-blur-[15px] transition-transform duration-500 hover:-translate-y-2.5 hover:shadow-2xl" data-bird="${escapeHTML(bird.nombre)}" tabindex="0">
+            <div class="h-[250px] overflow-hidden">
+                <img class="h-full w-full bg-black object-contain transition-transform duration-500 hover:scale-110" src="${escapeHTML(bird.url_imagen)}" alt="${escapeHTML(bird.titulo)}" loading="lazy" decoding="async">
+            </div>
+            <div class="p-6">
+                <h3 class="mb-2.5 font-display text-3xl text-gold">${escapeHTML(bird.titulo)}</h3>
+                <p class="text-[.95rem] font-light leading-relaxed text-gray-300">${escapeHTML(bird.descripcion)}</p>
+                <audio class="mt-5 w-full" controls preload="none" src="${escapeHTML(bird.url_audio)}" aria-label="Reproducir canto de ${escapeHTML(bird.titulo)}"></audio>
+            </div>
+        </article>
+    `).join('');
+
+    birdsContainer.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    birdsContainer.querySelectorAll('.card[data-bird]').forEach(card => {
+        const image = card.querySelector('img');
+        const audio = card.querySelector('audio');
+        if (image) image.parentElement.style.setProperty('--bird-image', `url("${image.src}")`);
+        card.addEventListener('mouseenter', () => playBirdAudio(audio));
+        card.addEventListener('mouseleave', stopBirdAudio);
+        card.addEventListener('focus', () => playBirdAudio(audio));
+        card.addEventListener('blur', stopBirdAudio);
+    });
+}
+
+function restoreInitialBirds() {
+    if (currentRequestController) currentRequestController.abort();
+    birdsContainer.replaceChildren(...initialBirdCards);
+    birdsContainer.setAttribute('aria-busy', 'false');
+}
+
+async function loadBirds(search = '') {
+    if (currentRequestController) currentRequestController.abort();
+    currentRequestController = new AbortController();
+    const endpoint = new URL('/api/aves', API_URL);
+    if (search.trim()) endpoint.searchParams.set('buscar', search.trim());
+    birdsContainer.setAttribute('aria-busy', 'true');
+
+    try {
+        const response = await fetch(endpoint, { signal: currentRequestController.signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        renderBirds(await response.json());
+    } catch (error) {
+        if (error.name !== 'AbortError') {
+            birdsContainer.innerHTML = '<p class="col-span-full py-12 text-center text-red-300">No se pudieron cargar las aves. Comprueba que el backend esté disponible.</p>';
+        }
+    } finally {
+        birdsContainer.setAttribute('aria-busy', 'false');
+    }
+}
+
+searchInput.addEventListener('input', event => {
+    clearTimeout(searchTimeout);
+    const searchTerm = event.target.value.trim();
+    if (!searchTerm) {
+        restoreInitialBirds();
+        return;
+    }
+    searchTimeout = setTimeout(() => loadBirds(searchTerm), 250);
+});
+
+searchInput.closest('form').addEventListener('submit', event => event.preventDefault());
+loadBirds();

@@ -80,6 +80,49 @@ button:focus-visible,
     transform: translateY(0);
 }
 
+/* ===== Buscador de especies ===== */
+.bird-search {
+    position: relative;
+    width: min(100%, 42rem);
+}
+
+.bird-search-field {
+    display: flex;
+    align-items: center;
+    min-height: 58px;
+    padding: 0 20px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 10px;
+    background: rgba(5, 10, 8, 0.78);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.bird-search-field:focus-within {
+    border-color: #d4af37;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(212, 175, 55, 0.14);
+    transform: translateY(-2px);
+}
+
+.bird-search-icon {
+    margin-right: 14px;
+    color: #d4af37;
+    font-size: 0.95rem;
+}
+
+.bird-search input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #f4f4f4;
+    font: 400 1rem 'Lato', sans-serif;
+}
+
+.bird-search input::placeholder { color: rgba(244, 244, 244, 0.52); }
+.bird-search input::-webkit-search-cancel-button { filter: invert(1); }
+
 .card > div:first-child {
     position: relative;
     isolation: isolate;
