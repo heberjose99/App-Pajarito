@@ -1,5 +1,5 @@
 // URL pública del backend en producción (con https)
-const API_URL = 'http://api.pajaritos.redhome.net.ar';
+const API_URL = 'https://pajaritos.redhome.net.ar/api';
 
 // Aparición progresiva de las secciones.
 const observer = new IntersectionObserver((entries) => {
